@@ -2,6 +2,7 @@ import React from "react";
 import ReactAnimatedWeather from "react-animated-weather";
 import Clock from "react-live-clock";
 import apiKey from "./apiKey";
+import loader from "./images/WeatherIcons.gif";
 import Forecast from "./forecast";
 
 const dateFor = (date) => {
@@ -100,7 +101,7 @@ class Weather extends React.Component {
       lat: lat,
       lon: lon,
       city: data.name,
-      temperature: data.main.temp, //have to round value
+      temperature: Math.round(data.main.temp / 10), //have to round value
       humidity: data.main.humidity,
       condition: data.weather[0].main,
       country: data.sys.country,
@@ -145,34 +146,24 @@ class Weather extends React.Component {
         <React.Fragment>
           <div className="city">
             <div className="title">
-              <h2>{this.state.city}</h2>
+              <h2 className="text-center">{this.state.city}</h2>
               <h3>{this.state.country}</h3>
-            </div>
-            <div className="icon">
-              {" "}
-              <ReactAnimatedWeather
-                icon={this.state.icon}
-                color={defaults.color}
-                size={defaults.size}
-                animate={defaults.animate}
-              />
-              <p>{this.state.main}</p>
             </div>
             <div className="date-time">
               <div className="dmy">
                 <div className="current-time">
                   <Clock format="HH:mm:ss" interval={1000} ticking={true} />
+                  <div className="current-date">{dateFor(new Date())}</div>
                 </div>
-                <div className="current-date">{dateFor(new Date())}</div>
               </div>
               <div className="temperature">
                 <p>
-                  {this.state.temperature}° <span>C</span>
+                  {this.state.temperature}°<span>C</span>
                 </p>
               </div>
             </div>
           </div>
-          <Forecast icon={this.state.icon} weather={this.state.main} />
+          <Forecast icon={this.state.icon} weather={this.state.condition} />
         </React.Fragment>
       );
     } else {

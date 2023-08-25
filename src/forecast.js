@@ -44,7 +44,7 @@ function Forecast(props) {
   }, []);
 
   return (
-    <div className="forecast">
+    <div className="forecast text-center">
       <div className="forecast-icon">
         <ReactAnimatedWeather
           icon={props.icon}
@@ -52,9 +52,10 @@ function Forecast(props) {
           size={defaults.size}
           animate={defaults.animate}
         />
+        <h3>{props.weather}</h3>
       </div>
       <div className="today-weather">
-        <h3>{props.weather}</h3>
+        <br></br>
         <div className="search-box">
           <input
             type="text"
@@ -63,13 +64,13 @@ function Forecast(props) {
             onChange={(e) => setQuery(e.target.value)}
             value={query}
           />
-          <div className="img-box">
-            {""}
-            <img
-              src="https://images.avishkaar.cc/workflow/newhp/search-white.png"
-              onClick={search}
-            />
-          </div>
+        </div>
+        <div className="img-box">
+          {""}
+          <img
+            src="https://images.avishkaar.cc/workflow/newhp/search-white.png"
+            onClick={search}
+          />
         </div>
         <ul>
           {typeof weather.main != "undefined" ? (
@@ -78,16 +79,19 @@ function Forecast(props) {
               <li className="city-head">
                 <p>
                   {weather.name}, {weather.sys.country}
+                  <span className="temp">
+                    <img
+                      className="temp"
+                      src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                    />
+                  </span>
                 </p>
-                <img
-                  className="temp"
-                  src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
-                />
               </li>
               <li>
                 Temperature{" "}
                 <span className="temp">
-                  {weather.main.temp}° C ({weather.weather[0].main})
+                  {Math.round(weather.main.temp / 10)}° C (
+                  {weather.weather[0].main})
                 </span>
               </li>
               <li>
@@ -96,7 +100,8 @@ function Forecast(props) {
               <li>
                 Visibility{" "}
                 <span className="temp">
-                  {weather.visibility} Mi {/* miles to kilometer to be done */}
+                  {weather.visibility / 1000} Km{" "}
+                  {/* miles to kilometer to be done */}
                 </span>
               </li>
               <li>

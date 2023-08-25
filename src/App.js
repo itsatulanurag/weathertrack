@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import LocationTrack from "./locationTrack";
 import "./App.css";
+import {} from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
@@ -8,7 +10,11 @@ function App() {
       <div className="container">
         <LocationTrack />
       </div>
-      <div className="info">Atul Anurag</div>
+      <hr style={{ color: "white", width: "80%", margin: "0 10% 0 10%" }} />
+      <br></br>
+      <div className="footer-info text-center">
+        <p>Atul Anurag</p>
+      </div>
     </React.Fragment>
   );
 }
