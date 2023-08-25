@@ -100,34 +100,34 @@ class Weather extends React.Component {
     });
     switch (this.state.condition) {
       case "Haze":
-        this.setState({ icon: "clear" });
+        this.setState({ icon: "CLEAR_DAY" });
         break;
       case "Clouds":
-        this.setState({ icon: "Cloudy" });
+        this.setState({ icon: "CLOUDY" });
         break;
       case "Rain":
-        this.setState({ icon: "Rain" });
+        this.setState({ icon: "RAIN" });
         break;
       case "Snow":
-        this.setState({ icon: "Snow" });
+        this.setState({ icon: "SNOW" });
         break;
       case "Dust":
-        this.setState({ icon: "Wind" });
+        this.setState({ icon: "WIND" });
         break;
       case "Drizzle":
-        this.setState({ icon: "Sleet" });
+        this.setState({ icon: "SLEET" });
         break;
       case "Fog":
-        this.setState({ icon: "Fog" });
+        this.setState({ icon: "FOG" });
         break;
       case "Smoke":
-        this.setState({ icon: "Fog" });
+        this.setState({ icon: "FOG" });
         break;
       case "Tornado":
-        this.setState({ icon: "Wind" });
+        this.setState({ icon: "WIND" });
         break;
       default:
-        this.setState({ icon: "clear" });
+        this.setState({ icon: "CLEAR_DAY" });
     }
   };
   render() {
