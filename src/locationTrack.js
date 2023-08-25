@@ -1,5 +1,8 @@
 import React from "react";
+import ReactAnimatedWeather from "react-animated-weather";
+import Clock from "react-live-clock";
 import apiKey from "./apiKey";
+// import Forecast from "./forecast";
 
 const dateFor = (date) => {
   const months = [
@@ -31,7 +34,13 @@ const dateFor = (date) => {
   let year = date.getFullYear();
   let day = days[date.getDay()];
 
-  return "${day}, ${month}, ${year}, ${day}";
+  return `${day}, ${currentDate} ${month} ${year}`;
+};
+
+const defaults = {
+  color: "white",
+  size: 112,
+  animate: true,
 };
 
 class Weather extends React.Component {
@@ -139,14 +148,39 @@ class Weather extends React.Component {
               <h2>{this.state.city}</h2>
               <h3>{this.state.country}</h3>
             </div>
-            <div className="icon"></div>
+            <div className="icon">
+              {" "}
+              <ReactAnimatedWeather
+                icon={this.state.icon}
+                color={defaults.color}
+                size={defaults.size}
+                animate={defaults.animate}
+              />
+              <p>{this.state.main}</p>
+            </div>
+            <div className="date-time">
+              <div className="dmy">
+                <div className="current-time">
+                  <Clock format="HH:mm:ss" interval={1000} ticking={true} />
+                </div>
+                <div className="current-date">{dateFor(new Date())}</div>
+              </div>
+              <div className="temperature">
+                <p>
+                  {this.state.temperature}° <span>C</span>
+                </p>
+              </div>
+            </div>
           </div>
+          {
+            //<Forecast icon={this.state.icon} weather={this.state.main} />
+          }
         </React.Fragment>
       );
     } else {
       return (
         <React.Fragment>
-          <div>not hehehehe</div>
+          <div>not hehe</div>
         </React.Fragment>
       );
     }
