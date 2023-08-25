@@ -2,7 +2,7 @@ import React from "react";
 import ReactAnimatedWeather from "react-animated-weather";
 import Clock from "react-live-clock";
 import apiKey from "./apiKey";
-// import Forecast from "./forecast";
+import Forecast from "./forecast";
 
 const dateFor = (date) => {
   const months = [
@@ -172,9 +172,7 @@ class Weather extends React.Component {
               </div>
             </div>
           </div>
-          {
-            //<Forecast icon={this.state.icon} weather={this.state.main} />
-          }
+          <Forecast icon={this.state.icon} weather={this.state.main} />
         </React.Fragment>
       );
     } else {
