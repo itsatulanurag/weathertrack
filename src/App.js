@@ -10,7 +10,13 @@ function App() {
       <div className="container">
         <LocationTrack />
       </div>
-      <hr style={{ color: "white", width: "80%", margin: "0 10% 0 10%" }} />
+      <hr
+        style={{
+          color: "white",
+          width: "80%",
+          margin: "0 10% 0 10%",
+        }}
+      />
       <br></br>
       <div className="footer-info text-center">
         Developed by Atul Anurag |{" "}
