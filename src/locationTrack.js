@@ -101,7 +101,7 @@ class Weather extends React.Component {
       lat: lat,
       lon: lon,
       city: data.name,
-      temperature: Math.round(data.main.temp / 10), //have to round value
+      temperature: Math.round(data.main.temp - 273), //have to round value
       humidity: data.main.humidity,
       condition: data.weather[0].main,
       country: data.sys.country,

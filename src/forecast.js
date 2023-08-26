@@ -18,20 +18,13 @@ function Forecast(props) {
         setWeather(response.data);
         setQuery("");
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
         setWeather("");
         setQuery("");
         setError({ message: "Not Found", query: query });
       });
   };
-
-  function checkTime(i) {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    return i;
-  }
 
   const defaults = {
     color: "white",
@@ -70,6 +63,7 @@ function Forecast(props) {
           <img
             src="https://images.avishkaar.cc/workflow/newhp/search-white.png"
             onClick={search}
+            alt="search"
           />
         </div>
         <ul>
@@ -83,6 +77,7 @@ function Forecast(props) {
                     <img
                       className="temp"
                       src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                      alt="{weather.weather[0].main}"
                     />
                   </span>
                 </p>
@@ -90,7 +85,7 @@ function Forecast(props) {
               <li>
                 Temperature{" "}
                 <span className="temp">
-                  {Math.round(weather.main.temp / 10)}° C (
+                  {Math.round(weather.main.temp - 273)}° C (
                   {weather.weather[0].main})
                 </span>
               </li>
