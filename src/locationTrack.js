@@ -169,7 +169,23 @@ class Weather extends React.Component {
     } else {
       return (
         <React.Fragment>
-          <div>not hehe</div>
+          <div className="text-center">
+            <img
+              src={loader}
+              style={{
+                margin: "20% 0 5% 0",
+                width: "20%",
+                WebkitUserDrag: "none",
+              }}
+            />
+            <h3 style={{ color: "white", fontSize: "22px", fontWeight: "600" }}>
+              Detecting your location
+            </h3>
+            <h3 style={{ color: "white", marginTop: "10px" }}>
+              Your current location wil be displayed on the App <br></br> & used
+              for calculating Real time weather.
+            </h3>
+          </div>
         </React.Fragment>
       );
     }
