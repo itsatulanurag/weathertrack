@@ -13,7 +13,9 @@ function App() {
       <hr style={{ color: "white", width: "80%", margin: "0 10% 0 10%" }} />
       <br></br>
       <div className="footer-info text-center">
-        <p>Atul Anurag</p>
+        Developed by Atul Anurag |{" "}
+        <a href="https://github.com/itsatulanurag/weathertrack">Git Repo</a> |{" "}
+        <a href="https://www.linkedin.com/in/itsatulanurag/">Linkedin</a>
       </div>
     </React.Fragment>
   );
